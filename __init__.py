@@ -1,6 +1,6 @@
 import os
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+# from flask_cors import CORS
 from auth import auth
 from api import api
 from handleEmails import emails
@@ -9,7 +9,7 @@ from background import AuditNotifier
 from threading import Thread
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 def create_app():
     """Application factory function to create and configure the Flask app."""
@@ -43,7 +43,7 @@ def create_app():
         print(data)
         return jsonify({'status': 'Data received'})
 
-    CORS(app, origins=["https://yourfrontend.com", "http://localhost:3000"])
+    # CORS(app, origins=["https://yourfrontend.com", "http://localhost:3000"])
 
 
     return app
