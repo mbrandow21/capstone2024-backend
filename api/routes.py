@@ -153,6 +153,8 @@ def createRecord():
     # Get a cursor from the connection
     connection_string = dbconnection()
 
+    print(sql, values)
+
     try:
         with pyodbc.connect(connection_string) as conn:
             cursor = conn.cursor()

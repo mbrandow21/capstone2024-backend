@@ -9,6 +9,4 @@ def dbconnection():
     connection_password = os.environ.get("SECRET_KEY")
     connection_string = f'DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};UID={connection_username};PWD={connection_password}'
 
-    print('THIS IS MY CONNECTION STRING', connection_string)
-
     return connection_string
