@@ -13,9 +13,9 @@ def get_sendgrid_webhook ():
     headers=request.headers
     print("RECIEVED WEBHOOK, SENDING HEADERS",headers)
 
-    response = request
+    data = request.json
 
-    print("THIS IS THE ENTIRE REQUEST", response)
+    print("THIS IS THE DATA", data)
     return jsonify({"message": "Data successfully Recieved"})
 
 
