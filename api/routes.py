@@ -11,8 +11,14 @@ from .functions import custom_serializer
 @api.route('/sendgrid/updatemessages/f829fca9-1e0f-4e06-a67f-20a0b2a025ca', methods=['POST'])
 def get_sendgrid_webhook ():
     headers=request.headers
-
     print("RECIEVED WEBHOOK, SENDING HEADERS",headers)
+
+    response = request
+
+    print("THIS IS THE ENTIRE REQUEST", response)
+    return jsonify({"message": "Data successfully Recieved"})
+
+
 
 
 @api.route('/post/procedure', methods=['POST'])
