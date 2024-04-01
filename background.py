@@ -29,7 +29,7 @@ class AuditNotifier:
   def check_for_new_audits(self):
     with pyodbc.connect(self.connection_string) as connection:
       with connection.cursor() as cursor:
-        cursor.execute("SELECT Audit_ID FROM Audits WHERE DATEDIFF(minute, Audit_Date, GETDATE()) BETWEEN 0 AND 5;")
+        cursor.execute("SELECT Audit_ID FROM Audits WHERE DATEDIFF(minute, GETDATE(), Audit_Date) BETWEEN 0 AND 5;")
         rows = cursor.fetchall()
         return rows if rows is not None and len(rows) > 0 else None
 
