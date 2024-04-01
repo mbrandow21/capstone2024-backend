@@ -43,7 +43,7 @@ def create_app():
         print(data)
         return jsonify({'status': 'Data received'})
 
-    CORS(app, origins=["https://yourfrontend.com", "http://lt-mbrandow:3000", "http://localhost:3000"])
+    CORS(app, origins=["https://apate-audits.vercel.app", "http://lt-mbrandow:3000", "http://localhost:3000"])
 
 
     return app

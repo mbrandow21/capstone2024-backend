@@ -25,6 +25,7 @@ class AuditNotifier:
         time.sleep(300)
       else: 
         time.sleep(300)
+        
   def check_for_new_audits(self):
     with pyodbc.connect(self.connection_string) as connection:
       with connection.cursor() as cursor:
