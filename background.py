@@ -14,17 +14,19 @@ class AuditNotifier:
     self.sendgrid_key = os.environ.get("SENDGRID_KEY")
     
   def run(self):
-    while True:
-      print("Checking for Audits")
+    while True:  
+      try:
+        print("Checking for Audits")
+        new_audits = self.check_for_new_audits()
+        if new_audits:
+          for audit in new_audits:
+            print("New Audit", audit)
+            self.send_audit(audit)
+      except Exception as e:
+        print(f"An error occurred: {e}")
+      finally:
+        time.sleep(300)  # Sleep at the end of the loop to delay the next iteration
 
-      new_audits = self.check_for_new_audits()
-      if new_audits:
-        for audit in new_audits:
-          print("New Audit", audit)
-          self.send_audit(audit)
-        time.sleep(300)
-      else: 
-        time.sleep(300)
         
   def check_for_new_audits(self):
     with pyodbc.connect(self.connection_string) as connection:
